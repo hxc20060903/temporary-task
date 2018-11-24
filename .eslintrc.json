@@ -1,0 +1,31 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "config/**",
+          "src/app/uiTestSetup.js",
+          "src/app/uiTestUtils.js",
+          "**/*/*test.{js,jsx}"
+        ]
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": 1,
+    "jsx-a11y/label-has-for": 1,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/forbid-prop-types": 1
+  },
+  "overrides": [{
+    "files": ["src/**/*.test.{js,jsx}"],
+    "env": {
+      "jest": true
+    }
+  }]
+}
