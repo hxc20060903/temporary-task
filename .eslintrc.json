@@ -20,7 +20,8 @@
     "jsx-a11y/label-has-associated-control": 1,
     "jsx-a11y/label-has-for": 1,
     "jsx-a11y/click-events-have-key-events": 0,
-    "react/forbid-prop-types": 1
+    "react/forbid-prop-types": 1,
+    "import/prefer-default-export": 0
   },
   "overrides": [{
     "files": ["src/**/*.test.{js,jsx}"],

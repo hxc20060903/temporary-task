@@ -14,12 +14,11 @@ const updateContract = (action$, store, { send }) => action$.pipe(
     }
     const { id, ...contract } = payload;
     try {
-      const response = {
-        data: payload,
-      };
-      // const response = await send.patch(`/contracts/${id}`, {
-      //   data: contract,
-      // });
+      const response = await send({
+        method: 'patch',
+        url: `/contracts/${id}`,
+        data: contract,
+      });
       return actionCreators.updateContractSuccess(response.data);
     } catch (error) {
       return actionCreators.updateContractFailed(error);

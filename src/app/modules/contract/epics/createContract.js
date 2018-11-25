@@ -13,17 +13,11 @@ const createContract = (action$, store, { send }) => action$.pipe(
       throw new ArgumentNullError('contract value should be concrete');
     }
     try {
-      const response = {
-        data: {
-          ...contract,
-          // time should be from server
-          date: new Date().valueOf(),
-          id: new Date().valueOf(),
-        },
-      };
-      // const response = await send.post('/contracts', {
-      //   data: contract,
-      // });
+      const response = await send({
+        method: 'post',
+        url: '/contracts',
+        data: contract,
+      });
       return actionCreators.createContractSuccess(response.data);
     } catch (error) {
       return actionCreators.createContractFailed(error);

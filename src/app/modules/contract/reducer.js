@@ -65,7 +65,7 @@ const handleNewFailure = (state, action) => {
     ...state,
     errors: {
       ...state.errors,
-      [contract.id]: error.toString(),
+      [contract.id]: error,
     },
   };
 };

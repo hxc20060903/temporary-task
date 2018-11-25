@@ -11,9 +11,10 @@ import rootReducer from './reducer';
 import rootEpic from './epic';
 import Application from './Application';
 
-export default function createApplication() {
+export default function createApplication(serverUrl = 'http://localhost:4000') {
+  const send = ApiClient({ apiBaseUrl: `${serverUrl}/api` });
   const epicMiddleware = createEpicMiddleware({
-    dependencies: { ApiClient },
+    dependencies: { send },
   });
 
   // eslint-disable-next-line no-underscore-dangle
