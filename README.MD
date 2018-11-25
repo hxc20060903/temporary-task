@@ -1,9 +1,7 @@
 # Overall structure
+Both of front-end and server-side is implemented. However authentication implementation is missing.
 
-I only completed the front-end part.
-Pity that I didn't implement the server side although I am confident to do that as well if given enough time.
-
-## frontend structure
+## frontend structuref
 
 * folder location: src/app
 * folder structure
@@ -17,12 +15,12 @@ Pity that I didn't implement the server side although I am confident to do that 
   * **reducer.js**: Redux root reducer definition
   * **epic.js**: Redux-Observable root epic definition
 
+* folder location: src/server
+* folder structure
+  * **database** mongoose setting
+  * **management** server service implementation
+
 ***
-
-## API mocking
-
-* I mocked the API result directly in the epics, as you can check in **app/modules/contract/epics**. I know it is ugly 😰
-
 ## asynchronous handling
 
 Because this application cares mostly about data updates, it should pay great attention to asynchronous handling.
@@ -45,6 +43,8 @@ The key of each translation involves *domain*, *intention/use-case* and *content
 **Create** is the exact content identifier of its translation
 
 ## core/navigation
+To avoid path parameters hardcoded in front-end.
+If authentication is to be added, this part needs to be updated somehow as well.
 
 ## ~~core/openid~~
 

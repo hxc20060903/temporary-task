@@ -4,6 +4,7 @@ const CREATE_CONTRACT = '@contract/CREATE_CONTRACT';
 const REMOVE_CONTRACT = '@contract/REMOVE_CONTRACT';
 const UPDATE_CONTRACT = '@contract/UPDATE_CONTRACT';
 const GET_CONTRACTS = '@contract/GET_CONTRACTS';
+const GET_CONTRACT = '@contract/GET_CONTRACT';
 
 const createSuccessActionType = (type = '') => `${type}_SUCCESS`;
 const createFailureActionType = (type = '') => `${type}_FAILURE`;
@@ -26,6 +27,10 @@ export const Actions = {
   GET_CONTRACTS_START: createStartActionType(GET_CONTRACTS),
   GET_CONTRACTS_SUCCESS: createSuccessActionType(GET_CONTRACTS),
   GET_CONTRACTS_FAILED: createFailureActionType(GET_CONTRACTS),
+
+  GET_CONTRACT_START: createStartActionType(GET_CONTRACT),
+  GET_CONTRACT_SUCCESS: createSuccessActionType(GET_CONTRACT),
+  GET_CONTRACT_FAILED: createFailureActionType(GET_CONTRACT),
 };
 
 export const actionCreators = {
@@ -44,4 +49,8 @@ export const actionCreators = {
   getContractsStart: createAction(Actions.GET_CONTRACTS_START),
   getContractsSuccess: createAction(Actions.GET_CONTRACTS_SUCCESS),
   getContractsFailed: createAction(Actions.GET_CONTRACTS_FAILED),
+
+  getContractStart: createAction(Actions.GET_CONTRACT_START),
+  getContractSuccess: createAction(Actions.GET_CONTRACT_SUCCESS),
+  getContractFailed: createAction(Actions.GET_CONTRACT_FAILED),
 };

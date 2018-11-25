@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -31,20 +31,27 @@ const styles = css({
   },
 });
 
-function UpdateContractPage(props) {
-  const { initialValues, updateContract } = props;
-  return (
-    <div className={cx(block.toString(), styles)}>
-      <h2 className={titleElement}>
-        <FormattedMessage {...TextTitles.updateContractPageTitle} />
-      </h2>
-      <ContractForm
-        initialValues={initialValues}
-        handleSubmit={updateContract}
-        className={formElement.toString()}
-      />
-    </div>
-  );
+class UpdateContractPage extends PureComponent {
+  componentDidMount() {
+    const { match: { params: { contractId } }, getContract } = this.props;
+    getContract(contractId);
+  }
+
+  render() {
+    const { initialValues, updateContract } = this.props;
+    return (
+      <div className={cx(block.toString(), styles)}>
+        <h2 className={titleElement}>
+          <FormattedMessage {...TextTitles.updateContractPageTitle} />
+        </h2>
+        <ContractForm
+          initialValues={initialValues}
+          handleSubmit={updateContract}
+          className={formElement.toString()}
+        />
+      </div>
+    );
+  }
 }
 
 UpdateContractPage.propTypes = {
@@ -53,6 +60,7 @@ UpdateContractPage.propTypes = {
   }).isRequired,
   initialValues: PropTypes.shape(CONTRACT_SHAPE).isRequired,
   updateContract: PropTypes.func.isRequired,
+  getContract: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => {
@@ -63,6 +71,7 @@ const mapStateToProps = (state, props) => {
   };
 };
 const dispatchToProps = {
+  getContract: actionCreators.getContractStart,
   updateContract: actionCreators.updateContractStart,
 };
 

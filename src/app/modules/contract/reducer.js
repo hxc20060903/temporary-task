@@ -112,6 +112,17 @@ const handleGetContractsSuccess = (state, action) => {
   };
 };
 
+const handleGetContractSuccess = (state, action) => {
+  const { payload: contract } = action;
+  return {
+    ...state,
+    contractsById: {
+      ...state.contractsById,
+      [contract.id]: contract,
+    },
+  };
+}
+
 const handlers = handleActions({
   [Actions.GET_CONTRACTS_START]: handleGetContractsStart,
 
@@ -124,5 +135,6 @@ const handlers = handleActions({
   [Actions.REMOVE_CONTRACT_SUCCESS]: handleRemoveContractSuccess,
   [Actions.UPDATE_CONTRACT_SUCCESS]: handleUpdateContractSuccess,
   [Actions.GET_CONTRACTS_SUCCESS]: handleGetContractsSuccess,
+  [Actions.GET_CONTRACT_SUCCESS]: handleGetContractSuccess,
 }, defaultContractModuleState);
 export default handlers;
