@@ -19,13 +19,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@emotion/core": "^10.0.0-beta.13",
-    "@emotion/styled": "^10.0.0-beta.13",
     "axios": "^0.18.0",
     "bem-cn": "^3.0.1",
     "common-errors": "^1.0.5",
     "emotion": "^9.2.12",
-    "express": "^4.16.4",
     "final-form": "^4.11.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
