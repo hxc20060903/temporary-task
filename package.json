@@ -11,6 +11,7 @@
     "build:app": "webpack --mode production --config webpack.config.babel.js",
     "build:intl": "echo @TODO_add_intl_translation_service",
     "dev": "webpack-dev-server --mode development --config webpack.config.babel.js --port 3000 --host localhost --open",
+    "start": "webpack-dev-server --config webpack.config.babel.js --port 3000",
     "clean": "rimraf build",
     "test": "cross-env BABEL_ENV=test jest"
   },
