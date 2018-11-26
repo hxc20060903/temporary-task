@@ -1,5 +1,5 @@
 # Overall structure
-Both of front-end and server-side is implemented. However authentication implementation is missing.
+Both of front-end and server-side is implemented.
 
 ## frontend structuref
 
@@ -43,7 +43,8 @@ The key of each translation involves *domain*, *intention/use-case* and *content
 **Create** is the exact content identifier of its translation
 
 ## core/navigation
-To avoid path parameters hardcoded in front-end.
+
+To avoid path parameters hard-coded in front-end.
 If authentication is to be added, this part needs to be updated somehow as well.
 
 ## ~~core/openid~~
